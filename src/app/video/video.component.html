@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-4" *ngFor="let v of listVideo, let i=index">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top"
+                src="https://www.apple.com/v/product-red/x/images/meta/og_world_aids__ccal5yhp82b6_day.png?202212020339"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">ID: {{v.id}}</h5>
+                <p class="card-text">Title: {{v.title}}</p>
+                <p class="card-text">genre: {{v.genre}}</p>
+                <p class="card-text">public: {{v.public}}</p>
+                <p class="card-text">nombre shared: {{v.nbrShared}}</p>
+
+            </div>
+        </div>
+    </div>
+</div>

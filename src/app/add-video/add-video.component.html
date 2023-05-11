@@ -1,19 +1,33 @@
 <form #videoForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="title">Titre</label>
-      <input type="text" class="form-control" id="title" required [(ngModel)]="video.title" name="title">
+        <label for="exampleInputEmail1">id</label>
+        <input type="number" class="form-control" name="id" placeholder="id" [(ngModel)]="video.id" required   #id="ngModel">
+    </div>
+
+    <div class="alert alert-danger" *ngIf="id.invalid && id.touched">
+        <p *ngIf="id.errors?.['required']">id is required</p>
+    </div>
+
+    <div class="form-group">
+        <label for="title">Titre</label>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="video.title" name="title">
+    </div>
+
+    <div class="form-group">
+        <label for="genre">Genre</label>
+        <input type="text" class="form-control" name="genre" id="genre" required [(ngModel)]="video.genre" required   #genre="ngModel">
+    </div>
+    <div class="alert alert-danger" *ngIf="genre.invalid && genre.touched">
+        <p *ngIf="genre.errors?.['required']">genre is required</p>
+    </div>
+
+    <div class="form-group">
+        <label for="public">Public</label>
+        <input type="checkbox" class="form-control" id="public" [(ngModel)]="video.public" name="public">
     </div>
     <div class="form-group">
-      <label for="genre">Genre</label>
-      <input type="text" class="form-control" id="genre" required [(ngModel)]="video.genre" name="genre">
-    </div>
-    <div class="form-group">
-      <label for="public">Public</label>
-      <input type="checkbox" class="form-control" id="public" [(ngModel)]="video.public" name="public">
-    </div>
-    <div class="form-group">
-      <label for="nbrShared">Nombre de partages</label>
-      <input type="number" class="form-control" id="nbrShared" [(ngModel)]="video.nbrShared" name="nbrShared">
+        <label for="nbrShared">Nombre de partages</label>
+        <input type="number" class="form-control" id="nbrShared" [(ngModel)]="video.nbrShared" name="nbrShared">
     </div>
     <button type="submit" class="btn btn-primary">Ajouter</button>
-  </form>
+</form>
